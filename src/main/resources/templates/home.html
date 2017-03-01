@@ -1,12 +1,41 @@
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layouts/main">
 <head>
-<link rel="stylesheet" 
-	href="webjars/bootstrap/3.3.1/css/bootstrap.min.css"  />
+
+<title>Home</title>
+<link rel="stylesheet" href="css/carousel.css"
+	th:href="@{/css/carousel.css}" />
 
 </head>
 
 <body>
-<h1>Hello  Mamun</h1> 
+<div layout:fragment="content">	
+	
+	
+	<form class="text-center" >
+    <label>User Name</label>
+    <input type="text" name="name" /><br />
+    <br />
+    <label>Password</label>
+    <input type="text" name="password" /><br />
+    <br />
+    <input type="submit" name="save" /><br />
 
-</body>
+</form>
+
+    
+
+    <div class="container marketing">
+
+      
+
+
+
+    </div>
+  
+  </div>
+  </body>
 </html>
