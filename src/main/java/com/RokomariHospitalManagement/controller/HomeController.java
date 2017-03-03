@@ -13,7 +13,7 @@ public class HomeController {
 	private static final Logger LOGGER = LoggerFactory
 				.getLogger(HomeController.class);
 	
-@RequestMapping (value = "/", method = RequestMethod.GET)	
+	@RequestMapping (value = "/", method = RequestMethod.GET)	
 	public String showHome()
 	{
 	LOGGER.debug("Rendaring home page");

@@ -3,7 +3,7 @@ package com.RokomariHospitalManagement.entity;
 import java.util.Date;
 
 
-public class doctorEntity {
+public class DoctorEntity {
    
 	private int id;  
 	private String name;  
