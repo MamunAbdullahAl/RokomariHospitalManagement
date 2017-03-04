@@ -1,14 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layouts/main">
 <head>
 
 <title>Patient</title>
-
+<link rel="stylesheet" href="css/carousel.css"
+	th:href="@{/css/carousel.css}" />
 
 </head>
 
 <body>
 
- <h1>hello patient</h1>
+<div class="container">
+<div class="row">
+
+<div class="col-sm-6">
+<form th:action="@{/patient}" method="post">
+    <label>Patient Name</label> 
+    <input type="text" name="name" th:value="@{patient.name}"/><br />
+    
+    <label>Patient Address</label> 
+    <input type="text" name="address" th:value="@{patient.address}"/><br />
+    
+    <label>Patient Phone</label> 
+    <input type="text" name="phone" th:value="@{patient.phone}"/><br />
+    
+    <label>Patient Appointment Date</label> 
+    <input type="text" name="appointment_date" th:value="@{patient.appointment_date}"/><br />
+    
+    <label>Doctor Id</label> 
+    <input type="text" name="doctor_id" th:value="@{patient.doctor_id}"/><br />
+    
+    
+    <input type="submit" name="save" /><br />
+
+</form>
+
+</div>
+
+
+
+<div class="col-sm-6">
+		
+ <table border="1" style="border-collapse:collapse">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Address</td>
+            <td>Phone</td>
+            <td>Appointment Date</td>
+            <td>Doctor</td>
+        </tr>
+        <tr          >
+            <td>{{ patient.id }}</td>
+            <td>{{ patient.name }}</td>
+            <td>{{ patient.address }}</td>
+            <td>{{ patirnt.phone }}</td>
+            <td>{{ patient.appointment_date }}</td>
+            <td>{{ patient.doctor_id }}</td>
+            <td>
+                 <button th:value="@{DeletePatient(patient.id)}">Delete</button>
+				 <button th:value="@{EditPatient(patient)}">Edit</button>
+				  <button th:value="@{UpdatePatient(patient)}">Update</button>
+            </td>
+        </tr>
+    </table>
+                
+</div>
+
+
+
+
+
+
+</div>
+</div>
+ 
   </body>
 </html>

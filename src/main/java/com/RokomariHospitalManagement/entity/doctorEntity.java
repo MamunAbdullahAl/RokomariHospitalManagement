@@ -2,14 +2,27 @@ package com.RokomariHospitalManagement.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class DoctorEntity {
    
-	private int id;  
-	private String name;  
-	private int patient_id;  
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id; 
+	@Column(name="name", length=100)
+	private String name; 
+	@Column(name="patient_id", length=100)
+	private int patient_id; 
+	@Column(name="phone", length=100)
 	private String phone;
+	@Column(name="email", length=100)
 	private String email;
+	@Column(name="available_dat", length=100)
 	private Date available_date;
 	
 	  
