@@ -61,9 +61,9 @@
             <td>{{ patient.appointment_date }}</td>
             <td>{{ patient.doctor_id }}</td>
             <td>
-                 <button th:value="@{DeletePatient(patient.id)}">Delete</button>
-				 <button th:value="@{EditPatient(patient)}">Edit</button>
-				  <button th:value="@{UpdatePatient(patient)}">Update</button>
+                 <button th:value="@{deletePatient(patient.id)}">Delete</button>
+				 <button th:value="@{editPatient(patient)}">Edit</button>
+				  <button th:value="@{addPatient(patient)}">Add</button>
             </td>
         </tr>
     </table>

@@ -1,14 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layouts/main">
 <head>
 
 <title>Doctor</title>
-
+<link rel="stylesheet" href="css/carousel.css"
+	th:href="@{/css/carousel.css}" />
 
 </head>
 
 <body>
 
  <h1>hello doctor</h1>
+ 
+ <div class="container">
+<div class="row">
+
+<div class="col-sm-6">
+<form th:action="@{/doctor}" method="post">
+    <label>Doctor Name</label> 
+    <input type="text" name="name" th:value="@{doctor.name}"/><br />
+    
+    <label>Patient Id</label> 
+    <input type="text" name="patient_id" th:value="@{doctor.patient_id}"/><br />
+    
+    <label>Doctor Phone</label> 
+    <input type="text" name="phone" th:value="@{doctor.phone}"/><br />
+    
+    <label>Email</label> 
+    <input type="text" name="email" th:value="@{doctor.email}"/><br />
+    
+    <label>Doctor Available Date</label> 
+    <input type="text" name="available_date" th:value="@{doctor.available_date}"/><br />
+    
+     
+    
+    <input type="submit" name="save" /><br />
+
+</form>
+
+</div>
+
+
+
+<div class="col-sm-6">
+		
+ <table border="1" style="border-collapse:collapse">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Patient Name</td>
+            <td>Phone</td>
+            <td>Email</td>
+            <td>Available Date</td>
+        </tr>
+        <tr          >
+            <td>{{ doctor.id }}</td>
+            <td>{{ doctor.name }}</td>
+            <td>{{ patient.name }}</td>
+            <td>{{ doctor.phone }}</td>
+            <td>{{ doctor.email }}</td>
+            <td>{{ doctor.available_date }}</td>
+            <td>
+                 <button th:value="@{deleteDoctor(doctor.id)}">Delete</button>
+				 <button th:value="@{editDoctor(doctor)}">Edit</button>
+				  <button th:value="@{addDoctor(doctor)}">Add</button>
+            </td>
+        </tr>
+    </table>
+                
+</div>
+
+
+
+
+
+
+</div>
+ 
+ </div>
   </body>
 </html>

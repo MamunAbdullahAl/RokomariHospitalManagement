@@ -1,6 +1,6 @@
 package com.RokomariHospitalManagement.controller;
 
-import java.io.IOException;
+
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -20,27 +20,44 @@ import com.RokomariHospitalManagement.service.DoctorService;
 
 public class DoctorController {
 	
+	
 	@Autowired 
 	private DoctorService doctorService;
 	
-	@RequestMapping("/doctor")
-	public String getDoctors(Model model){
-		List<DoctorEntity> doctor = doctorService.getDoctorList();
-		
-		model.addAttribute("doctor", doctor);
-		
-		return "doctor";		
-	}
-	
-	
-	@RequestMapping("/showDoctor/{id}")
-    public String showDoctor(@PathVariable int id, Model model) throws IOException{
-        DoctorEntity doctor = doctorService.getDoctorById(id);
+	@RequestMapping("/doctor/deleteDoctor/{id}")
+    public String deleteDoctor(@PathVariable int id, Model model){
         
-        model.addAttribute("doctor", doctor);
+		DoctorEntity doctor = doctorService.getDoctorById(id);;
+		doctorService.deleteDoctor(doctor);
 
         return "doctor";
     }
+	
+	 @RequestMapping("/doctor/editDoctor/{id}")
+	    public String editDoctor(@PathVariable("id") int id,  Model model){
+		 DoctorEntity doctor = doctorService.getDoctorById(id);
+		 doctorService.editDoctor(doctor);
+	        return "doctor";
+	    }
+	    
+	
+	 
+	 @RequestMapping("/doctor/addDoctor/{id}")
+	    public String showDoctor(@PathVariable int id, Model model){
+		 DoctorEntity doctor = doctorService.getDoctorById(id);
+	        doctorService.addDoctor(doctor);
+	        return "doctor";
+	    }
+	 
+	
+	@RequestMapping("/doctor/doctorList")
+	public String getDoctors(Model model){
+		List<DoctorEntity> doctors = doctorService.getDoctorList();
+		
+		model.addAttribute("doctors", doctors);
+		
+		return "doctor";		
+	}
 	
 	
 	private static final Logger LOGGER = LoggerFactory

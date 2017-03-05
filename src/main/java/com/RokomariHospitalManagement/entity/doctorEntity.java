@@ -22,7 +22,7 @@ public class DoctorEntity {
 	private String phone;
 	@Column(name="email", length=100)
 	private String email;
-	@Column(name="available_dat", length=100)
+	@Column(name="available_date", length=100)
 	private Date available_date;
 	
 	  

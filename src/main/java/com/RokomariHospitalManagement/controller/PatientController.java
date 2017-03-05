@@ -1,7 +1,7 @@
 package com.RokomariHospitalManagement.controller;
 
-import java.io.IOException;
 import java.util.List;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +19,9 @@ import com.RokomariHospitalManagement.service.PatientService;
 
 
 
+
+
+
 @Controller
 
 public class PatientController {
@@ -27,25 +30,43 @@ public class PatientController {
 	private PatientService patientService;
 	
 	
+	@RequestMapping("/patient/deletePatient/{id}")
+    public String deletePatient(@PathVariable int id, Model model){
+        
+		PatientEntity patient = patientService.getPatientById(id);;
+		 patientService.deletePatient(patient);
+
+        return "Patient";
+    }
 	
-	@RequestMapping("/patient")
+	 @RequestMapping("/patient/editPatient/{id}")
+	    public String editPatient(@PathVariable("id") int id,  Model model){
+		 PatientEntity patient = patientService.getPatientById(id);
+	        patientService.editPatient(patient);
+	        return "Patient";
+	    }
+	    
+	
+	 
+	 @RequestMapping("/patient/addPatient/{id}")
+	    public String showPatient(@PathVariable int id, Model model){
+	        PatientEntity patient = patientService.getPatientById(id);
+	        patientService.addPatient(patient);
+	        return "Patient";
+	    }
+	 
+	
+	@RequestMapping("/patient/patientList")
 	public String getPatients(Model model){
 		List<PatientEntity> patients = patientService.getPatientList();
 		
 		model.addAttribute("patients", patients);
 		
-		return "patient";		
+		return "Patient";		
 	}
 	
 	
-	@RequestMapping("/showPatient/{id}")
-    public String showPatient(@PathVariable int id, Model model) throws IOException{
-        PatientEntity patient = patientService.getPatientById(id);
-        
-        model.addAttribute("patient", patient);
-
-        return "patient";
-    }
+	
 	
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(PatientController.class);

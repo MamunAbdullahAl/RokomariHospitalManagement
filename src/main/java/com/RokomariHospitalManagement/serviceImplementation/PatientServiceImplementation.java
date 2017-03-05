@@ -8,8 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.RokomariHospitalManagement.entity.PatientEntity;
 import com.RokomariHospitalManagement.service.PatientService;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 
+@Repository
+@Transactional
 @Service
 public class PatientServiceImplementation implements PatientService {
 
