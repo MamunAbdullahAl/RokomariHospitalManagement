@@ -2,6 +2,7 @@ package com.RokomariHospitalManagement.entity;
 
 import java.util.Date;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -66,6 +67,10 @@ public class DoctorEntity {
 	public void setEmail(String email) {  
 	    this.email = email;  
 	}  
+	
+	
+	
+	
 	  
 }  
 

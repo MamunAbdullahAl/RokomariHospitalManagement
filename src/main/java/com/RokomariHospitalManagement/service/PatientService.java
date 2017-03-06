@@ -2,6 +2,7 @@ package com.RokomariHospitalManagement.service;
 
 import java.util.List;
 
+
 import com.RokomariHospitalManagement.entity.PatientEntity;
 
 
@@ -17,5 +18,7 @@ public interface PatientService {
     void editPatient(PatientEntity patient);
 
     void deletePatient(PatientEntity patient);
+
+	
 
 }
